@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Sowjanya Manyam — Computer Science student, software developer and AI enthusiast.">
+<title>Sowjanya Manyam | Software & AI</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{--bg:#070a12;--card:#101626;--text:#f5f7ff;--muted:#9ba7bd;--line:rgba(255,255,255,.09);--a:#8d7cff;--b:#5eead4}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;z-index:-2}
+body:after{content:"";position:fixed;width:550px;height:550px;right:-220px;top:-180px;border-radius:50%;background:rgba(141,124,255,.13);filter:blur(100px);z-index:-3}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+
+/* Navigation */
+nav{position:fixed;top:14px;left:0;right:0;z-index:50}
+.navbar{position:relative;width:min(1050px,92%);margin:auto;height:62px;padding:0 18px;border:1px solid var(--line);border-radius:18px;background:rgba(7,10,18,.72);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:"Space Grotesk",sans-serif;font-weight:700}
+.logo i{color:var(--a);font-style:normal}
+.navlinks{display:flex;gap:22px;color:var(--muted);font-size:.87rem}
+.navlinks a:hover{color:white}
+.menu{display:none;background:none;border:0;color:white;font-size:1.3rem;cursor:pointer}
+
+/* Hero Section */
+.hero{min-height:100vh;padding:155px 0 90px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.kicker{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.025);color:#cbd4e8;font-size:.78rem;margin-bottom:22px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--b);box-shadow:0 0 14px var(--b)}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif}
+h1{font-size:clamp(3.4rem,7.5vw,6.8rem);line-height:.93;letter-spacing:-4px}
+.gradient{background:linear-gradient(100deg,#fff 15%,#b4aaff 55%,#5eead4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy{font-size:1.1rem;color:var(--muted);max-width:640px;margin-top:26px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:12px 18px;border-radius:11px;border:1px solid var(--line);font-weight:700;font-size:.9rem;transition:.22s;background:rgba(255,255,255,.03)}
+.btn:hover{transform:translateY(-3px);border-color:rgba(141,124,255,.4)}
+.btn.primary{background:var(--a);border-color:var(--a);color:#fff}
+.btn.primary:hover{background:#7967f6}
+
+/* Profile Card */
+.hero-card{position:relative}
+.orbit{position:absolute;inset:-35px;border:1px solid rgba(141,124,255,.15);border-radius:50%;transform:rotate(-18deg)}
+.identity{position:relative;min-height:410px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,rgba(141,124,255,.14),rgba(16,22,38,.88));padding:30px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.identity:before{content:"SM";position:absolute;right:-25px;top:-45px;font-family:"Space Grotesk",sans-serif;font-size:13rem;font-weight:700;color:rgba(255,255,255,.025)}
+.avatar{width:82px;height:82px;border-radius:23px;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center;font-family:"Space Grotesk",sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:auto}
+.identity h2{font-size:1.8rem}
+.identity p{color:var(--muted);margin-top:7px}
+.status{margin-top:22px;display:inline-flex;align-items:center;gap:8px;color:#cbd4e8;font-size:.8rem}
+
+/* Section Global */
+section{padding:105px 0}
+.eyebrow{font-size:.74rem;letter-spacing:2.2px;text-transform:uppercase;color:var(--b);font-weight:700}
+.section-title{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-2px;margin:7px 0 35px}
+
+/* About Grid */
+.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px}
+.about-text{font-size:1.08rem;color:var(--muted)}
+.about-text p+p{margin-top:18px}
+.fact-grid{display:grid;gap:12px}
+.fact{border:1px solid var(--line);border-radius:15px;padding:17px;background:rgba(255,255,255,.025)}
+.fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:1.3rem}
+.fact span{color:var(--muted);font-size:.82rem}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service{padding:27px;border:1px solid var(--line);border-radius:20px;background:var(--card);transition:.25s}
+.service:hover{transform:translateY(-5px);border-color:rgba(141,124,255,.4)}
+.icon{font-size:1.6rem;margin-bottom:17px}
+.service h3{font-size:1.15rem}
+.service p{color:var(--muted);font-size:.9rem;margin-top:8px}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{min-height:300px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#101626,#0c111e);padding:27px;display:flex;flex-direction:column;transition:.25s;position:relative}
+.project:hover{transform:translateY(-5px);border-color:rgba(141,124,255,.4)}
+.project-top{display:flex;justify-content:space-between;align-items:center}
+.num{font-family:"Space Grotesk",sans-serif;color:#68748c;font-size:.78rem}
+.project-link{color:var(--muted);font-size:1.1rem;transition:.2s}
+.project:hover .project-link{color:var(--b);transform:translate(2px,-2px)}
+.project h3{font-size:1.5rem;margin-top:32px}
+.project h3 a{color:inherit}
+.project h3 a::after{content:"";position:absolute;inset:0}
+.project p{color:var(--muted);font-size:.92rem;margin-top:10px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:24px;position:relative;z-index:2}
+.tag{font-size:.72rem;color:#c9d2e5;background:#171f33;border:1px solid var(--line);padding:5px 8px;border-radius:7px}
+
+/* Skills Categories */
+.skills-wrapper{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-box{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--card)}
+.skill-box h3{font-size:1.05rem;color:#cbd4e8;margin-bottom:16px}
+.skills{display:flex;gap:9px;flex-wrap:wrap}
+.skill{padding:8px 12px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:8px;color:#d7deee;font-size:.84rem}
+
+/* Timeline */
+.timeline{border-left:1px solid var(--line);padding-left:28px;display:grid;gap:28px;max-width:800px}
+.event{position:relative}
+.event:before{content:"";position:absolute;left:-34px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--a);box-shadow:0 0 16px rgba(141,124,255,.7)}
+.event .date{font-size:.73rem;color:var(--b);letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.event h3{font-size:1.2rem;margin:4px 0}
+.event p{color:var(--muted);font-size:.91rem}
+
+/* Achievements */
+.achievements{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.achievement{border:1px solid var(--line);border-radius:17px;padding:22px;background:rgba(255,255,255,.025)}
+.achievement h3{font-size:1.05rem}
+.achievement p{font-size:.82rem;color:var(--muted);margin-top:6px}
+
+/* Contact */
+.contact{text-align:center;padding:75px 30px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 50% 0,rgba(141,124,255,.18),transparent 55%),var(--card)}
+.contact h2{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-2px}
+.contact p{color:var(--muted);max-width:590px;margin:12px auto 0}
+.contact .actions{justify-content:center}
+footer{padding:28px 0;color:#68748c;border-top:1px solid var(--line);font-size:.78rem;text-align:center}
+
+/* Responsive Media Queries */
+@media(max-width:850px){
+  .menu{display:block}
+  .navlinks{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:14px;background:rgba(10,14,24,.97);border:1px solid var(--line);border-radius:16px;padding:20px 24px;box-shadow:0 15px 30px rgba(0,0,0,.6)}
+  .navlinks.mobile{display:flex}
+  .hero{padding-top:130px}
+  .hero-grid,.about-grid,.projects,.skills-wrapper{grid-template-columns:1fr}
+  .services,.achievements{grid-template-columns:1fr}
+  .identity{min-height:330px}
+  h1{letter-spacing:-2px}
+  section{padding:75px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navbar">
+    <a class="logo" href="#home">Sowjanya<i>.</i></a>
+    <div class="navlinks" id="navLinks">
+      <a href="#about" onclick="toggleNav()">About</a>
+      <a href="#work" onclick="toggleNav()">Work</a>
+      <a href="#skills" onclick="toggleNav()">Skills</a>
+      <a href="#journey" onclick="toggleNav()">Journey</a>
+      <a href="#contact" onclick="toggleNav()">Contact</a>
+    </div>
+    <button class="menu" aria-label="Toggle navigation menu" onclick="toggleNav()">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span> Open to learning, building & collaborating</div>
+        <h1>I build <span class="gradient">software</span> and explore AI.</h1>
+        <p class="hero-copy">I'm Sowjanya Manyam, a Computer Science student interested in software engineering, artificial intelligence, and building practical technology systems.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">Explore my work ↓</a>
+          <a class="btn" href="https://github.com/sowjanya07-ctrl" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/sowjanyamanyam/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="orbit"></div>
+        <div class="identity">
+          <div class="avatar">SM</div>
+          <div>
+            <h2>Sowjanya Manyam</h2>
+            <p>Computer Science & Engineering</p>
+            <div class="status"><span class="dot"></span> Building my next project</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="eyebrow">01 · About</div>
+      <h2 class="section-title">Curious by nature. Builder by practice.</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a CSE student building my foundation across programming, web technologies, databases, data analytics, and intelligent systems. I enjoy understanding core user problems and translating them into robust, reliable software.</p>
+          <p>Alongside academics, I participate in competitive hackathons and technical community initiatives that push me beyond coursework. My long-term focus lies at the intersection of modern software engineering and applied AI.</p>
+        </div>
+        <div class="fact-grid">
+          <div class="fact"><strong>CSE</strong><span>Aditya University</span></div>
+          <div class="fact"><strong>Software + AI</strong><span>Primary focus areas</span></div>
+          <div class="fact"><strong>2026</strong><span>Google Student Ambassador</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Focus Areas -->
+  <section>
+    <div class="container">
+      <div class="eyebrow">02 · Focus</div>
+      <h2 class="section-title">Where I'm putting my energy.</h2>
+      <div class="services">
+        <div class="service">
+          <div class="icon">⌘</div>
+          <h3>Software Development</h3>
+          <p>Writing clean, maintainable code across algorithms, object-oriented systems, and relational databases.</p>
+        </div>
+        <div class="service">
+          <div class="icon">✦</div>
+          <h3>AI & Data Analytics</h3>
+          <p>Structuring, processing, and analyzing complex datasets to surface actionable metrics and predictive models.</p>
+        </div>
+        <div class="service">
+          <div class="icon">↗</div>
+          <h3>Problem Solving</h3>
+          <p>Competing in hackathons and architecting functional prototypes that address practical real-world problems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="work">
+    <div class="container">
+      <div class="eyebrow">03 · Selected work</div>
+      <h2 class="section-title">Projects I've built.</h2>
+      <div class="projects">
+        
+        <article class="project">
+          <div class="project-top">
+            <span class="num">01 / ENGINEERING & AI</span>
+            <span class="project-link">↗</span>
+          </div>
+          <h3><a href="https://github.com/sowjanya07-ctrl" target="_blank" rel="noopener noreferrer">Digital Twin for Piston Engines</a></h3>
+          <p>A monitoring-focused digital twin architecture tracking RPM, altitude, thermal load, and flight phases to surface anomalies and facilitate early predictive fault isolation.</p>
+          <div class="tags"><span class="tag">Digital Twin</span><span class="tag">AI/ML</span><span class="tag">Telemetry</span></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <span class="num">02 / CORE C++</span>
+            <span class="project-link">↗</span>
+          </div>
+          <h3><a href="https://github.com/sowjanya07-ctrl" target="_blank" rel="noopener noreferrer">Number System Toolkit</a></h3>
+          <p>A modular C++ engine for validating and transforming arbitrary numeric bases, structured around strict object-oriented patterns, reusability, and algorithm optimization.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Data Structures</span><span class="tag">OOP</span></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <span class="num">03 / DATABASE ARCHITECTURE</span>
+            <span class="project-link">↗</span>
+          </div>
+          <h3><a href="https://github.com/sowjanya07-ctrl" target="_blank" rel="noopener noreferrer">GRAB: E-Commerce Schema</a></h3>
+          <p>A normalized relational database system designed with comprehensive ER diagrams, multi-table transactions, primary/foreign key integrity, and optimized SQL procedures.</p>
+          <div class="tags"><span class="tag">Oracle SQL</span><span class="tag">DBMS</span><span class="tag">Relational Modeling</span></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <span class="num">04 / DATA SCIENCE</span>
+            <span class="project-link">↗</span>
+          </div>
+          <h3><a href="https://github.com/sowjanya07-ctrl" target="_blank" rel="noopener noreferrer">Data Analytics Pipelines</a></h3>
+          <p>End-to-end data processing suites covering data cleaning, statistical evaluation, hypothesis testing, and interactive reporting using Python and Power BI.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Power BI</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="eyebrow">04 · Toolkit</div>
+      <h2 class="section-title">Technologies I work with.</h2>
+      <div class="skills-wrapper">
+        <div class="skill-box">
+          <h3>Languages</h3>
+          <div class="skills">
+            <span class="skill">C</span>
+            <span class="skill">C++</span>
+            <span class="skill">Python</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">SQL</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h3>Data & Storage</h3>
+          <div class="skills">
+            <span class="skill">Oracle SQL</span>
+            <span class="skill">DBMS / RDBMS</span>
+            <span class="skill">Pandas</span>
+            <span class="skill">NumPy</span>
+            <span class="skill">Power BI</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h3>Web & Tools</h3>
+          <div class="skills">
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">Git & GitHub</span>
+            <span class="skill">LaTeX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Section -->
+  <section id="journey">
+    <div class="container">
+      <div class="eyebrow">05 · Journey</div>
+      <h2 class="section-title">Milestones & community.</h2>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">2026 · Present</div>
+          <h3>Google Student Ambassador</h3>
+          <p>Leading campus initiatives for the Gemini cohort, coordinating interactive tech sessions, and helping students build with modern AI tooling.</p>
+        </div>
+        <div class="event">
+          <div class="date">2026 · Ongoing</div>
+          <h3>Hackathons & Competitive Engineering</h3>
+          <p>Competing in national challenges (including Adobe Hackathon and Flipkart GRiD), engineering end-to-end prototypes under real-world constraints.</p>
+        </div>
+        <div class="event">
+          <div class="date">Academic · Community</div>
+          <h3>National Service Scheme (NSS)</h3>
+          <p>Organizing and volunteering in community support programs and social awareness drives alongside academic engineering work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section>
+    <div class="container">
+      <div class="eyebrow">06 · Honors</div>
+      <h2 class="section-title">Recognition & Scholarships.</h2>
+      <div class="achievements">
+        <div class="achievement">
+          <h3>Google Student Ambassador</h3>
+          <p>Selected for the competitive 2026 Gemini student cohort.</p>
+        </div>
+        <div class="achievement">
+          <h3>STEM Stars Scholar</h3>
+          <p>Awarded by the Infosys Foundation for academic excellence in engineering.</p>
+        </div>
+        <div class="achievement">
+          <h3>Reliance Foundation Scholar</h3>
+          <p>Selected for the Reliance Foundation Undergraduate Scholarship program.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div class="eyebrow">07 · Contact</div>
+        <h2>Let's build something impactful.</h2>
+        <p>Whether you're looking to discuss open engineering roles, hackathon collaborations, or technical projects, my inbox is open.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:sowjanya.manyam07@gmail.com">Send an Email ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/sowjanyamanyam/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="btn" href="https://github.com/sowjanya07-ctrl" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Sowjanya Manyam · Designed & built with HTML and CSS</footer>
+
+<script>
+function toggleNav() {
+  const nav = document.getElementById('navLinks');
+  if (window.innerWidth <= 850) {
+    nav.classList.toggle('mobile');
+  }
+}
+</script>
+</body>
+</html>
